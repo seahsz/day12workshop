@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Lucky Numbers</title>
+</head>
+
+<body>
+
+    <h1>Hello <span data-th-text="${name}"></span></h1>
+
+    <!-- if list nums is empty -->
+    <div data-th-if="${listNums == null or listNums.empty}">
+        <h2>These are your <span data-th-text="${count}"></span> lucky numbers</h2>
+    </div>
+    <!-- if list nums is not empty-->
+    <div data-th-unless="${listNums == null or listNums.empty}">
+        <h2>Here is your list of lucky numbers</h2>
+    </div>
+
+
+    <!-- generate the number images based on the controller -->
+    <img data-th-each="imgName :${randNums}" th:src="${imgName}" width="33%" height="33%" style="display: inline-flex;">
+
+</body>
+
+</html>
